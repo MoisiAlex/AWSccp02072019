@@ -75,7 +75,7 @@ window.myCPP = window.myCPP || {};
 
 function logAttributeMsg(msg) {
         connect.getLog().info(msg);
-        logMsgToScreen(msg);
+        logAttributesToScreen(msg);
     }
 
     function logInfoMsg(msg) {
