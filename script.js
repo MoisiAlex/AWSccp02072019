@@ -43,7 +43,7 @@ window.myCPP = window.myCPP || {};
     function updateContactAttribute(msg){
         const tableRef = document.getElementById('attributesTable').getElementsByTagName('tbody')[0];             
         for (let key in msg) {
-            if (msg.hasOwnProperty(key) && CONFIG.hiddenCA.indexOf(key)==-1) {
+            if (msg.hasOwnProperty(key) && CONFIG.indexOf(key)==-1) {
                         let row = tableRef.insertRow(tableRef.rows.length);
                         let cell1 = row.insertCell(0);
                         let cell2 = row.insertCell(1);
@@ -63,6 +63,14 @@ window.myCPP = window.myCPP || {};
 
     function logMsgToScreen(msg) {
         logMsgs.innerHTML =  new Date().toLocaleTimeString() + ' : ' + msg + '<br>' + logMsgs.innerHTML;
+    }
+
+    function logAttributesToScreen(msg) {
+        for (let key in msg) {
+            if (msg.hasOwnProperty(key) && CONFIG.indexOf(key)==-1) {
+        logMsgs.innerHTML =  new Date().toLocaleTimeString() + ' : ' + key + ' : ' + msg[key]['value'] + '<br>' + logMsgs.innerHTML;
+            }
+        }
     }
 
     function logInfoMsg(msg) {
