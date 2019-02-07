@@ -32,7 +32,7 @@ window.myCPP = window.myCPP || {};
         }
         logInfoMsg("Contact is from queue " + contact.getQueue().name);    
         logInfoMsg("ContactID is " + contact.getContactId());   
-        logInfoMsg("Contact attributes are " + JSON.stringify(contact.getAttributes()));
+        logAttributeMsg("Contact attributes are " + JSON.stringify(contact.getAttributes()));
          
         updateContactAttribute(contact.getAttributes());   
         contact.onEnded(clearContactAttribute);
@@ -71,6 +71,11 @@ window.myCPP = window.myCPP || {};
         logMsgs.innerHTML =  new Date().toLocaleTimeString() + ' : ' + key + ' : ' + msg[key]['value'] + '<br>' + logMsgs.innerHTML;
             }
         }
+    }
+
+function logAttributeMsg(msg) {
+        connect.getLog().info(msg);
+        logMsgToScreen(msg);
     }
 
     function logInfoMsg(msg) {
